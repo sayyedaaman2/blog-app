@@ -27,7 +27,7 @@ exports.createBlog = async (req, res) => {
 exports.updateBlog = async (req, res) => {
     try {
 
-        const blog = await Blog.findOne({ _id: req.params.id });
+        const blog = req.blog;
 
         blog.name = req.body.name != undefined ? req.body.name : blog.name;
         blog.content = req.body.content != undefined ? req.body.content : blog.content;
@@ -69,8 +69,11 @@ exports.updateBlog = async (req, res) => {
 // find by name 
 exports.findBlog = async (req, res) => {
     try {
-        const blogs = await Blog.find({ name: { $regex: `${req.params.name}` } });
+        // const blogs = await Blog.find({ name: { $regex: `${req.params.name}` } });
         // console.log(req.params.name);
+        const serachString = req.params.name;
+        const blogs = await Blog.find({$text : {$search : serachString}})
+
 
         if (blogs.length == 0) {
 

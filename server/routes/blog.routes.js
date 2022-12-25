@@ -1,12 +1,12 @@
 const blogController = require('../controllers/blog.controller');
-
+const {blogValidation} = require('../middlewares');
 module.exports = (app)=>{
 
     //create the blog api
-    app.post('/blogapp/v1/blog/create', blogController.createBlog);
+    app.post('/blogapp/v1/blog/create', blogValidation.blogDataValidator, blogController.createBlog);
 
     //update the blog api
-    app.put('/blogapp/v1/blog/:id', blogController.updateBlog);
+    app.put('/blogapp/v1/blog/:id',blogValidation.isValidBlogId, blogController.updateBlog);
     
     //get blog by name
     app.get('/blogapp/v1/blog/:name', blogController.findBlog);

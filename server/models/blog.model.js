@@ -22,5 +22,5 @@ const blogSchema = new mongoose.Schema({
 },{
     versionKey : false , timestamps : true
 });
-
+blogSchema.index({name : "text"});
 module.exports = mongoose.model("blog", blogSchema);
