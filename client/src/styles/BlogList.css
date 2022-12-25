@@ -1,0 +1,22 @@
+.Blog-list{
+    padding : 20px;
+    background-color: whitesmoke;
+}
+Table{
+    margin: 0;
+    background: red;
+}
+.row{
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+.hashtag{
+    display: inline-block;
+}
+.tag{
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 2px 12px;
+}

@@ -7,14 +7,20 @@ module.exports = (app)=>{
 
     //update the blog api
     app.put('/blogapp/v1/blog/:id',blogValidation.isValidBlogId, blogController.updateBlog);
-    
+
+    //get single id
+    // app.get('/blogapp/v1/blog/:id', blogController.findSingleBlog);
+
+    //get all blogs
+    app.get('/blogapp/v1/blogs',blogController.findAllBlog);
+
     //get blog by name
     app.get('/blogapp/v1/blog/:name', blogController.findBlog);
     
     //get blog by hashTag
-    app.get('/blogapp/v1/blogs/hash', blogController.findBlogbyHashTag);
+    app.get('/blogapp/v1/blog/hash', blogController.findBlogbyHashTag);
     
     //delete the  blog 
-    app.delete('/blogapp/v1/blog/:id', blogController.deleteBlog);
+    app.delete('/blogapp/v1/blog', blogController.deleteBlog);
     
 }

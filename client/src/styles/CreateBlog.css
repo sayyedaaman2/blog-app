@@ -1,0 +1,66 @@
+#createBlog{
+
+    background: linear-gradient(to right, rgb(161, 239, 132), rgb(253, 202, 0));
+    width: 80%;
+    margin: 12px auto;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+#createBlog-container{
+    border: 2px solid white;
+    background-color: aliceblue;
+    padding: 12px;
+}
+
+#content{
+    resize:vertical;
+        min-height: 100px;
+}
+.createbox-form{
+    box-sizing: border-box;
+    width: 100%;
+    display: flexbox;
+    text-align: center;
+    border: 2px solid red;
+}
+.input-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.key{
+    width: 50%;
+
+}
+.value{
+    width: 40%;
+}
+#add-button{
+    text-align: center;
+}
+#hashtag-conatiner{
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgb(240, 255, 255);
+    height: 45px;
+    border : 2px solid black;
+    border-radius: 12px;
+
+    width: 70%;
+    margin: 0 auto;
+    padding : 12px;
+    min-height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    height: 80%;
+}

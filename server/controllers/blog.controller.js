@@ -66,6 +66,34 @@ exports.updateBlog = async (req, res) => {
         })
     }
 }
+
+exports.findSingleBlog = async (req, res) => {
+    try {
+        console.log("id",req.params.id);
+        const blogs = await Blog.findOne({ _id: req.params.id });
+        if (blogs.length == 0) {
+
+            res.status(404).send({
+                message: "Not Found"
+            })
+            return;
+        }
+        else {
+
+            res.status(200).send({
+                Message: "Successfully fetch the Blog",
+                data: blogs
+            });
+        }
+
+    } catch (err) {
+        console.log(`Error while the single finding the blog ${err}`);
+        res.status(500).send({
+            Message: "Internal Server Error"
+        })
+    }
+}
+
 // find by name 
 exports.findBlog = async (req, res) => {
     try {
@@ -98,6 +126,35 @@ exports.findBlog = async (req, res) => {
     }
 }
 
+
+exports.findAllBlog = async (req, res) => {
+    try {
+  
+        const blogs = await Blog.find();
+
+
+        if (blogs.length == 0) {
+
+            res.status(404).send({
+                message: "Not Found"
+            })
+            return;
+        }
+        else {
+
+            res.status(200).send({
+                Message: "Successfully fetch all the Blog",
+                data: blogs
+            });
+        }
+
+    } catch (err) {
+        console.log(`Error while the finding the blog ${err}`);
+        res.status(500).send({
+            Message: "Internal Server Error"
+        })
+    }
+}
 exports.findBlogbyHashTag = async (req, res) => {
     try {
         /**
@@ -134,9 +191,9 @@ exports.findBlogbyHashTag = async (req, res) => {
 
 exports.deleteBlog = async (req, res) => {
     try {
-
-        const blogDelete = await Blog.deleteOne({ _id: req.params.id });
-
+        console.log(req.query.id);
+        const blogDelete = await Blog.deleteOne({ _id: req.query.id });
+        console.log(blogDelete);
         res.status(200).send({
             Message: "Successfully Delete  the Blog",
             data: blogDelete
