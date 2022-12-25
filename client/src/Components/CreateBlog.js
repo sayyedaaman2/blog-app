@@ -21,7 +21,7 @@ const CreateBlog = () => {
       let url = `/blogapp/v1/blog/create`
       let response = await axios.post(url,blogData);
       console.log(response);
-      if(response == 201){
+      if(response.status == 201){
         alert("Successfuly Created the Blog");
       }
       else{
